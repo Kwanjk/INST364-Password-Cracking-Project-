@@ -88,13 +88,51 @@ pip install streamlit zxcvbn altair pandas
 streamlit run streamlit_app.py       # open localhost:8501
 
 ---
-## 🛠️ How the Code Works & Why It Matters
 
-Block | What It Does | Learning Payoff
-load_common() | Loads top‑N leaked passwords; caches result. | Enables Dictionary Hit? metric—people grasp “my password is on a public list.”
-Entropy/Brute Math brute_seconds() | Computes average crack time: |pool|<sup>L</sup> / rate / 2 (half‑search assumption). | Visualizes why each extra char‑class & length bit matters exponentially.
-Password Strength Tester | Calls zxcvbn(pwd) → returns guess count & sequences. | Combines corpus stats + pattern heuristics → grounded, real‑world feedback.
-Log‑scale chart | Altair scatter of online vs. offline seconds. | Immediate contrast: milliseconds vs. millennia.
-Reuse Blast Radius | Formula ceil(n·[1 – (1–p)^n]) | Translates “probability” into number of accounts lost—breaks optimism bias.
-Credential Stuffing | Inclusion‑exclusion: breached + reused – overlap | Shows that reuse+breach overlap super‑charges attacker ROI.
-Coach | strong_pw() → 128‑bit random; curated links. | Lowers activation energy from insight → action (bounded rationality fix).
+## 🛠️ How the Code Works & Why It Matters
+
+| Block / Function | Purpose in Code | Pedagogical Pay‑Off |
+|------------------|-----------------|---------------------|
+| **`load_common()`**<br>`@st.cache_data` | Loads the top _​N_ leaked passwords (RockYou subset) and caches them. | Powers the **“Dictionary Hit?”** flag—users instantly see when their password is already public. |
+| **Entropy & Brute‑Force Math**<br>`brute_seconds()` | Calculates average crack time: \|pool\|<sup>length</sup> / rate ÷ 2 (half‑search expectation). | Visualizes the exponential benefit of adding length/char‑classes (bounded rationality: slider shows impact without math). |
+| **Time Formatter**<br>`fmt_dur()` | Converts raw seconds into human units (min, h, d, y, > 1 M y). | Removes mental arithmetic; prevents “2.4 e8 s” confusion. |
+| **`strong_pw()`** | Generates a cryptographically‑secure 128‑bit password via `secrets.choice()`. | Demonstrates an *actionable* fix—one click, no theory required. |
+| **Strength Tester Tab**<br>`zxcvbn(pwd)` | Combines corpus stats & heuristic patterns (keyboard walks, dates). | Gives realistic feedback instead of naïve length rules; caps off with myth‑buster tips. |
+| **Log‑Scale Altair Chart** | Plots crack seconds (online 10 k/s vs. offline 1 B/s GPU). | Milliseconds vs. millennia visual shock breaks overconfidence. |
+| **Reuse Blast Radius** | Formula: `ceil(n · [1 – (1–p)^n])` → expected accounts lost if any site leaks. | Converts abstract probability into **“X / Y accounts fall”**—users grasp the cascade. |
+| **Credential‑Stuffing Wave** | Inclusion‑exclusion: `breached + reused – overlap`. | Shows how reuse × previous breaches equals org‑wide compromise; slider makes trade‑offs salient. |
+| **Best‑Practice Coach** | One‑click random password + links to Bitwarden / KeePassXC; NIST SP 800‑63b guidance. | Bridges insight → action (bounded rationality fix); dispels 90‑day‑rotation myth. |
+| **Footer (“No telemetry”)** | States nothing is sent off‑box. | Builds trust; addresses privacy mental models. |
+
+### Dictionary‑Match Logic
+`zxcvbn` scans the password’s _sequence_ list. If any substring ranks ≤ 10 000 in the leaked dictionary, **Dictionary Hit? = Yes** and the effective crack time drops to seconds—showing why “Password1” is doomed even at 9 characters.
+
+### Reuse Blast‑Radius Calculation
+Probability that **at least one** of _n_ services breaches in a year:  
+&nbsp;&nbsp;`P = 1 – (1 – p)^n`  
+
+Expected accounts lost = `ceil(n · P)`  
+
+> **Interpretation:** with 5 reused accounts and a 15 % breach chance each, you’re likely to lose ~3 accounts from a single leak.
+
+### Credential‑Stuffing Overlap
+* `breached` = users already in public dumps.  
+* `reused` = users who reuse passwords.  
+* `overlap` = employees in both groups.  
+* `compromised = breached + reused – overlap` avoids double‑counting, yielding a realistic attacker success figure.
+
+### Coach Output Significance
+* **Random passwords** leverage crypto‑secure randomness—~128 bits of entropy.  
+* Open‑source manager links lower cost & trust barriers.  
+* NIST guidance (“change only on compromise”) corrects outdated rotation policies.
+
+---
+
+## 🔄 Future Work
+* Export personal PDF/CSV reports for compliance.  
+* Animated brute‑force timeline for live workshops.  
+* Role‑specific modules (finance, HR, dev, intern).
+
+> *“See your passwords through a hacker’s eyes—then never reuse one again.”*
+
+© 2025 Password‑Security Simulator | Educational prototype | **No telemetry**
