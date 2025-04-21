@@ -143,8 +143,7 @@ This simulator turns invisible threats into visible lessons, empowering users to
 > • Git (optional, for cloning)  
 > • A modern web browser
 
-1. **Clone or download the repository**  
-   '''(You can just copy the code into Python/VS Code)  
+1. **Clone or download the repository** (You can just copy the code into Python/VS Code)  
 2. **Install dependencies**
    '''bash
    pip install streamlit zxcvbn altair pandas
