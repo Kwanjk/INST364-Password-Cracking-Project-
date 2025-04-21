@@ -136,4 +136,25 @@ This simulator turns invisible threats into visible lessons, empowering users to
 
 ---
 
+## 🚀 How to Run the Simulator Locally
+
+> **Prerequisites**:  
+> • Python 3.9+  
+> • Git (optional, for cloning)  
+> • A modern web browser
+
+1. **Clone or download the repository**  
+   ```bash
+   git clone https://github.com/your‑handle/password‑sim.git
+   cd password‑sim
+2. **Install dependencies**
+   '''bash
+   pip install streamlit zxcvbn altair pandas
+3. **Run the app**
+   '''bash
+   streamlit run streamlit_app.py
+
+---
+
+
 © 2025 Password‑Security Simulator | Educational use only | No data is collected or sent
