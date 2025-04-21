@@ -1,12 +1,12 @@
 # 🔐 Password-Security Simulator (2025 Final Prototype)
 
-This is an interactive educational simulation designed to **visually and experientially demonstrate the dangers of weak or reused passwords** in small to mid-sized organizations. Built with Streamlit, this prototype enables users—especially non-expert employees—to test password strength, explore real-world attack scenarios, and receive actionable coaching. The tool is grounded in cybersecurity principles and human-centered frameworks, specifically **Mental Models** and **Bounded Rationality**.
+This is an interactive educational simulation designed to **visually and experientially demonstrate the dangers of weak or reused passwords** in small to mid-sized organizations. Built with Streamlit, this prototype enables users, especially non-expert employees, to test password strength, explore real-world attack scenarios, and receive actionable coaching. The tool is grounded in cybersecurity principles and human-centered frameworks, specifically **Mental Models** and **Bounded Rationality**.
 
 ---
 
 ## 🎯 Project Objective
 
-Most password-compromise incidents don’t result from sophisticated malware or zero-day exploits. They stem from **predictable human behavior**—like reusing passwords across platforms or assuming that "slightly changing" a password keeps it secure. This simulator demonstrates how these common behaviors are **easily exploited through password cracking techniques** such as:
+Most password-compromise incidents don’t result from sophisticated malware or zero-day exploits. They stem from **predictable human behavior**, like reusing passwords across platforms or assuming that "slightly changing" a password keeps it secure. This simulator demonstrates how these common behaviors are **easily exploited through password cracking techniques** such as:
 
 - **Brute-force attacks**
 - **Dictionary attacks**
@@ -89,7 +89,7 @@ Based on behavioral research and class frameworks, we anticipate:
 
 ### 🔸 Cognitive Conflict:
 - Users will experience **dissonance** when they see how quickly a reused or "tweaked" password is cracked.
-- This aligns with **conceptual change theory**—confronting flawed mental models with credible, visible evidence.
+- This aligns with **conceptual change theory**, confronting flawed mental models with credible, visible evidence.
 
 ### 🔸 Behavioral Intention Shift:
 - Clear, low-effort simulations lower the barrier to adopting better practices.
@@ -132,7 +132,7 @@ Based on behavioral research and class frameworks, we anticipate:
 > "You don’t need to be a security expert.  
 > You just need to *see* why good habits beat good intentions."
 
-This simulator turns invisible threats into visible lessons—empowering users to build stronger password habits within the limits of human behavior.
+This simulator turns invisible threats into visible lessons, empowering users to build stronger password habits within the limits of human behavior.
 
 ---
 
