@@ -1,138 +1,139 @@
-# 🔐 Password‑Security Simulator (2025 Final Prototype)
+# 🔐 Password-Security Simulator (2025 Final Prototype)
 
-Interactive Streamlit app that lets non‑expert employees **see** why weak or reused passwords crumble under real‑world attacks—and how small habit changes slash risk.
-
-- **Bounded Rationality:** sliders/presets respect limited attention; visuals remove math barriers.  
-- **Mental‑Model Nudges:** each output ends with a myth‑buster that corrects common misconceptions.
+This is an interactive educational simulation designed to **visually and experientially demonstrate the dangers of weak or reused passwords** in small to mid-sized organizations. Built with Streamlit, this prototype enables users—especially non-expert employees—to test password strength, explore real-world attack scenarios, and receive actionable coaching. The tool is grounded in cybersecurity principles and human-centered frameworks, specifically **Mental Models** and **Bounded Rationality**.
 
 ---
 
 ## 🎯 Project Objective
 
-Most password‑compromise incidents don’t result from exotic zero‑day exploits; they arise from **predictable human behavior**—reusing passwords or assuming small tweaks (“Password1 → Password2”) suffice.  
-This simulator shows how these habits are exploited through:
+Most password-compromise incidents don’t result from sophisticated malware or zero-day exploits. They stem from **predictable human behavior**—like reusing passwords across platforms or assuming that "slightly changing" a password keeps it secure. This simulator demonstrates how these common behaviors are **easily exploited through password cracking techniques** such as:
 
-| Technique | What Attackers Do |
-|-----------|------------------|
-| **Brute‑force** | Systematically try every combination. |
-| **Dictionary** | Test high‑probability words/phrases from leaked lists (e.g., *rockyou*). |
-| **Credential Stuffing** | Replay usernames + passwords from past breaches on new sites. |
+- **Brute-force attacks**
+- **Dictionary attacks**
+- **Credential stuffing**
 
-The tool delivers **immediate, visual feedback** that corrects misconceptions while respecting users’ limited time, attention, and cognitive bandwidth.
+The app is meant to serve as both a **teaching tool and behavior changer**, offering immediate feedback that corrects misconceptions while respecting users' limited time, attention, and cognitive bandwidth.
 
 ---
 
-## 🧠 Human‑Centered Design Philosophy
+## 🧠 Human-Centered Design Philosophy
 
-### 1. Mental Models
-Users rely on simplistic metaphors:
-* “Long = strong.”  
-* “I’ve never been hacked, so I’m safe.”  
-* “Adding ‘123!’ makes it secure.”  
+The design of this simulator is guided by two behavioral frameworks discussed throughout the course:
 
-We surface *why* these models fail (blast‑radius math, live crack times).
+### 1. Mental Models
 
-### 2. Bounded Rationality
-Memory limits → reuse; perceived hassle → skip managers.  
-The UI employs low‑friction sliders, one‑click buttons, and color‑coded feedback to fit real cognitive constraints.
+People often rely on **simplistic or inaccurate metaphors** to guide their security behavior:
+- "I just add a number to my password, so it’s fine.”
+- “If I haven’t been hacked, I’m probably safe.”
+- “My password is long, so it’s strong.”
+
+These beliefs inform a mental model that leads to **overconfidence and vulnerability**. The simulator exposes these flaws by modeling realistic attack scenarios and showing the **actual blast radius of password reuse**.
+
+### 2. Bounded Rationality
+
+Rather than acting fully rationally, users take **shortcuts** based on attention, time, or memory constraints:
+- Reusing passwords instead of creating new ones.
+- Ignoring password managers due to perceived complexity.
+- Choosing passwords they can recall easily instead of ones resistant to cracking.
+
+This simulator meets users **where they are**, offering clear, low-friction interfaces (sliders, preset buttons, visual feedback) that deliver insights **without cognitive overload**.
 
 ---
 
 ## 🧪 Core Features
 
-| # | Tab | Key Insight |
-|---|-----|-------------|
-| **1** | **Password Strength Tester** | Shows entropy, dictionary hit, and crack times (GPU vs. web). |
-| **2** | **Reuse Blast Radius** | One leak → many accounts. Formula: `math.ceil(n * (1 - (1 - p)**n))`. |
-| **3** | **Credential‑Stuffing Wave** | Overlap math reveals org‑wide fallout from reuse × breaches. |
-| **4** | **Best‑Practice Coach** | One‑click random password + links to Bitwarden / KeePassXC; MFA tips. |
+### 🔹 1. **Password Strength Tester**
+- Uses the `zxcvbn` password estimation library to assess entropy, dictionary hits, and estimated crack time.
+- Displays comparative results for **offline brute-force attacks** (1 billion guesses/sec) and **online attacks** (10,000 guesses/sec).
+- Visually shows how even long passwords can fail if they contain predictable patterns (e.g., `Password1`).
+- Ends each result block with a **myth-busting tip** aligned with common user misconceptions.
 
 ---
 
-## 👥 Anticipated User Journey
-
-1. **Hook** – Test a familiar password → instant fail.  
-2. **Explore** – Drag sliders, watch risk bars spike.  
-3. **Reflect** – Myth‑buster captions correct mental models.  
-4. **Act** – Generate strong password, install manager.  
-5. **Share** – Screenshots circulate in team chat → viral learning.
+### 🔹 2. **Reuse Blast Radius**
+- Models how reusing the **same password across multiple accounts** compounds risk.
+- Takes into account the **probability of breach per site** to show how *one leak* compromises *many logins*.
+- Uses math-based probability but renders it via **sliders and progress bars** for accessibility.
+- Reinforces the idea that unique passwords act as **firewalls between services**.
 
 ---
 
-## 📊 Why It Matters for Small‑Mid Orgs
-* Few dedicate full‑time security staff.  
-* Annual training quickly fades.  
-* Simulator supplies *experiential* reinforcement with zero admin overhead.
+### 🔹 3. **Credential-Stuffing Simulator**
+- Simulates a real-world **attack wave** on an organization where some employees’ credentials are already in public breach databases.
+- Calculates how many users are at risk based on:
+  - Total users in the organization
+  - % of staff reusing passwords
+  - % of staff already in a breach
+- Demonstrates how attackers succeed by **exploiting reused credentials**, not brute-force complexity.
+- Reinforces **bounded rationality** by showing the magnitude of consequences through **simple sliders**.
 
 ---
 
-## ⚙️ Tech Stack
-* Python 3.9+ │ Streamlit │ zxcvbn │ Altair │ pandas │ math │ secrets
+### 🔹 4. **Best-Practice Coach**
+- Provides instant generation of strong, random passwords using secure entropy sources.
+- Offers curated, actionable advice:
+  - Use of password managers
+  - When to rotate passwords
+  - MFA recommendations
+- Highlights free/open-source tools (Bitwarden, KeePassXC) for low-barrier adoption.
 
 ---
 
-## 🚀 Quick Start
+## 🧪 Anticipated User Reactions & Learning Outcomes
 
-```bash
-git clone https://github.com/your‑org/password‑sim.git
-cd password‑sim
+Based on behavioral research and class frameworks, we anticipate:
 
-python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS / Linux
-source .venv/bin/activate
+### 🔸 Initial Reaction:
+- Curiosity about how strong their existing password is.
+- Surprise when familiar patterns (e.g., `qwerty123`, `Welcome2024`) fail instantly.
 
-pip install streamlit zxcvbn altair pandas
+### 🔸 Cognitive Conflict:
+- Users will experience **dissonance** when they see how quickly a reused or "tweaked" password is cracked.
+- This aligns with **conceptual change theory**—confronting flawed mental models with credible, visible evidence.
 
-streamlit run streamlit_app.py       # open localhost:8501
-
----
-
-## 🛠️ How the Code Works & Why It Matters
-
-| Block / Function | Purpose in Code | Pedagogical Pay‑Off |
-|------------------|-----------------|---------------------|
-| **`load_common()`**<br>`@st.cache_data` | Loads the top _​N_ leaked passwords (RockYou subset) and caches them. | Powers the **“Dictionary Hit?”** flag—users instantly see when their password is already public. |
-| **Entropy & Brute‑Force Math**<br>`brute_seconds()` | Calculates average crack time: \|pool\|<sup>length</sup> / rate ÷ 2 (half‑search expectation). | Visualizes the exponential benefit of adding length/char‑classes (bounded rationality: slider shows impact without math). |
-| **Time Formatter**<br>`fmt_dur()` | Converts raw seconds into human units (min, h, d, y, > 1 M y). | Removes mental arithmetic; prevents “2.4 e8 s” confusion. |
-| **`strong_pw()`** | Generates a cryptographically‑secure 128‑bit password via `secrets.choice()`. | Demonstrates an *actionable* fix—one click, no theory required. |
-| **Strength Tester Tab**<br>`zxcvbn(pwd)` | Combines corpus stats & heuristic patterns (keyboard walks, dates). | Gives realistic feedback instead of naïve length rules; caps off with myth‑buster tips. |
-| **Log‑Scale Altair Chart** | Plots crack seconds (online 10 k/s vs. offline 1 B/s GPU). | Milliseconds vs. millennia visual shock breaks overconfidence. |
-| **Reuse Blast Radius** | Formula: `ceil(n · [1 – (1–p)^n])` → expected accounts lost if any site leaks. | Converts abstract probability into **“X / Y accounts fall”**—users grasp the cascade. |
-| **Credential‑Stuffing Wave** | Inclusion‑exclusion: `breached + reused – overlap`. | Shows how reuse × previous breaches equals org‑wide compromise; slider makes trade‑offs salient. |
-| **Best‑Practice Coach** | One‑click random password + links to Bitwarden / KeePassXC; NIST SP 800‑63b guidance. | Bridges insight → action (bounded rationality fix); dispels 90‑day‑rotation myth. |
-| **Footer (“No telemetry”)** | States nothing is sent off‑box. | Builds trust; addresses privacy mental models. |
-
-### Dictionary‑Match Logic
-`zxcvbn` scans the password’s _sequence_ list. If any substring ranks ≤ 10 000 in the leaked dictionary, **Dictionary Hit? = Yes** and the effective crack time drops to seconds—showing why “Password1” is doomed even at 9 characters.
-
-### Reuse Blast‑Radius Calculation
-Probability that **at least one** of _n_ services breaches in a year:  
-&nbsp;&nbsp;`P = 1 – (1 – p)^n`  
-
-Expected accounts lost = `ceil(n · P)`  
-
-> **Interpretation:** with 5 reused accounts and a 15 % breach chance each, you’re likely to lose ~3 accounts from a single leak.
-
-### Credential‑Stuffing Overlap
-* `breached` = users already in public dumps.  
-* `reused` = users who reuse passwords.  
-* `overlap` = employees in both groups.  
-* `compromised = breached + reused – overlap` avoids double‑counting, yielding a realistic attacker success figure.
-
-### Coach Output Significance
-* **Random passwords** leverage crypto‑secure randomness—~128 bits of entropy.  
-* Open‑source manager links lower cost & trust barriers.  
-* NIST guidance (“change only on compromise”) corrects outdated rotation policies.
+### 🔸 Behavioral Intention Shift:
+- Clear, low-effort simulations lower the barrier to adopting better practices.
+- Sliders offer a **risk-cost feedback loop** without needing technical knowledge.
+- Users begin to view password managers not as a hassle but as a **necessary firewall**.
 
 ---
 
-## 🔄 Future Work
-* Export personal PDF/CSV reports for compliance.  
-* Animated brute‑force timeline for live workshops.  
-* Role‑specific modules (finance, HR, dev, intern).
+## 📊 Why This Matters for Small-Mid Organizations
 
-> *“See your passwords through a hacker’s eyes—then never reuse one again.”*
+- These orgs are least likely to employ full-time cybersecurity staff.
+- Employees are often **trained once and expected to remember forever**.
+- This simulator complements formal training with **experiential learning**, enabling:
+  - Visual consequence modeling
+  - Habit-based nudges
+  - Trustworthy, minimalistic coaching
 
-© 2025 Password‑Security Simulator | Educational prototype | **No telemetry**
+---
+
+## ⚙️ Tech Stack
+
+- `Python`
+- `Streamlit`
+- `zxcvbn` (password strength estimator)
+- `Altair` (visualization)
+- `pandas`, `math`, `secrets` (data + secure generation)
+
+---
+
+## 🧩 Future Work
+
+- Add **report download** option with personalized feedback summary.
+- Introduce **attack visualization** (e.g., animated brute-force attempts).
+- Integrate **role-specific simulations** (e.g., finance manager vs. intern) to personalize behavior risks.
+
+---
+
+## 📬 Final Thought
+
+> "You don’t need to be a security expert.  
+> You just need to *see* why good habits beat good intentions."
+
+This simulator turns invisible threats into visible lessons—empowering users to build stronger password habits within the limits of human behavior.
+
+---
+
+© 2025 Password‑Security Simulator | Educational use only | No data is collected or sent
