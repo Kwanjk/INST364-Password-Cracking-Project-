@@ -145,10 +145,10 @@ This simulator turns invisible threats into visible lessons, empowering users to
 
 1. **Clone or download the repository** (You can just copy the code into Python/VS Code)  
 2. **Install dependencies**
-   '''bash
+   ```bash
    pip install streamlit zxcvbn altair pandas
 3. **Run the app**
-   '''bash
+   ```bash
    streamlit run streamlit_app.py
 
 ---
