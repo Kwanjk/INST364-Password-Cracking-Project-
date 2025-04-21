@@ -144,7 +144,7 @@ This simulator turns invisible threats into visible lessons, empowering users to
 > • A modern web browser
 
 1. **Clone or download the repository**  
-   (I ran mine in VS Code)  
+   (You can just copy the code into Python/VS Code)  
 2. **Install dependencies**
    '''bash
    pip install streamlit zxcvbn altair pandas
