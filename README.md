@@ -86,3 +86,15 @@ source .venv/bin/activate
 pip install streamlit zxcvbn altair pandas
 
 streamlit run streamlit_app.py       # open localhost:8501
+
+---
+## 🛠️ How the Code Works & Why It Matters
+
+Block | What It Does | Learning Payoff
+load_common() | Loads top‑N leaked passwords; caches result. | Enables Dictionary Hit? metric—people grasp “my password is on a public list.”
+Entropy/Brute Math brute_seconds() | Computes average crack time: |pool|<sup>L</sup> / rate / 2 (half‑search assumption). | Visualizes why each extra char‑class & length bit matters exponentially.
+Password Strength Tester | Calls zxcvbn(pwd) → returns guess count & sequences. | Combines corpus stats + pattern heuristics → grounded, real‑world feedback.
+Log‑scale chart | Altair scatter of online vs. offline seconds. | Immediate contrast: milliseconds vs. millennia.
+Reuse Blast Radius | Formula ceil(n·[1 – (1–p)^n]) | Translates “probability” into number of accounts lost—breaks optimism bias.
+Credential Stuffing | Inclusion‑exclusion: breached + reused – overlap | Shows that reuse+breach overlap super‑charges attacker ROI.
+Coach | strong_pw() → 128‑bit random; curated links. | Lowers activation energy from insight → action (bounded rationality fix).
