@@ -43,7 +43,7 @@ The UI employs low‑friction sliders, one‑click buttons, and color‑coded fe
 | # | Tab | Key Insight |
 |---|-----|-------------|
 | **1** | **Password Strength Tester** | Shows entropy, dictionary hit, and crack times (GPU vs. web). |
-| **2** | **Reuse Blast Radius** | One leak → many accounts. Formula: `ceil(n·[1 – (1–p)^n])`. |
+| **2** | **Reuse Blast Radius** | One leak → many accounts. Formula: `math.ceil(n * (1 - (1 - p)**n))`. |
 | **3** | **Credential‑Stuffing Wave** | Overlap math reveals org‑wide fallout from reuse × breaches. |
 | **4** | **Best‑Practice Coach** | One‑click random password + links to Bitwarden / KeePassXC; MFA tips. |
 
