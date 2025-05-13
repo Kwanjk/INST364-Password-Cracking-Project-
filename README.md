@@ -52,7 +52,7 @@ This simulator meets users **where they are**, offering clear, low-friction inte
 
 ### 🔹 1. **Password Strength Tester**
 - Uses the `zxcvbn` password estimation library to assess entropy, dictionary hits, and estimated crack time.
-- Displays comparative results for **offline brute-force attacks** (1 billion guesses/sec) and **online attacks** (10,000 guesses/sec).
+- Displays comparative results for **offline brute-force attacks** (1 billion guesses/sec [hashcat2025]) and **online attacks** (10,000 guesses/sec).
 - Visually shows how even long passwords can fail if they contain predictable patterns (e.g., `Password1`).
 - Ends each result block with a **myth-busting tip** aligned with common user misconceptions.
 
