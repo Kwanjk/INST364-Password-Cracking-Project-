@@ -1,6 +1,6 @@
 # 🔐 Password-Security Simulator (2025 Final Prototype)
 
-This is an interactive educational simulation designed to **visually and experientially demonstrate the dangers of weak or reused passwords** in small to mid-sized organizations. Built with Streamlit, this prototype enables users, especially non-expert employees, to test password strength, explore real-world attack scenarios, and receive actionable coaching. The tool is grounded in cybersecurity principles and human-centered frameworks, specifically **Mental Models** and **Bounded Rationality**.
+This is an interactive educational simulation designed to **visually and experientially demonstrate the dangers of weak or reused passwords** in small to mid-sized organizations. Built with Streamlit, this prototype enables users, especially non-expert employees, to test password strength, explore real-world attack scenarios, and receive actionable coaching. The tool is grounded in cybersecurity principles and the human-centered framework of **Bounded Rationality**.
 
 ---
 
