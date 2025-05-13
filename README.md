@@ -11,7 +11,7 @@ Our aim: let them *see*—in under five minutes—how a single leaked password c
 
 ---
 
-## Focus (one tech topic, one human topic)** 
+## Focus (one tech topic, one human topic) 
 *Tech lens*: **Password Cracking** — brute-force, dictionary, and credential-stuffing attacks.  
 *Human lens*: **Bounded Rationality** — sliders, presets, and color-coded feedback replace mental math so the secure option is also the easiest.
 
