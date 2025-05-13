@@ -33,16 +33,11 @@ The app is meant to serve as both a **teaching tool and behavior changer**, offe
 
 The design of this simulator is guided by two behavioral frameworks discussed throughout the course:
 
-### 1. Mental Models
+### Myth-Busting Messages (supporting Bounded Rationality)
 
-People often rely on **simplistic or inaccurate metaphors** to guide their security behavior:
-- "I just add a number to my password, so it’s fine.”
-- “If I haven’t been hacked, I’m probably safe.”
-- “My password is long, so it’s strong.”
+Each tab ends with a one-sentence myth-buster (e.g., “One leak ⇒ all reused accounts fall”) to correct common password misconceptions without adding extra mental effort.
 
-These beliefs inform a mental model that leads to **overconfidence and vulnerability**. The simulator exposes these flaws by modeling realistic attack scenarios and showing the **actual blast radius of password reuse**.
-
-### 2. Bounded Rationality
+### Bounded Rationality
 
 Rather than acting fully rationally, users take **shortcuts** based on attention, time, or memory constraints:
 - Reusing passwords instead of creating new ones.
