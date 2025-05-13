@@ -4,6 +4,19 @@ This is an interactive educational simulation designed to **visually and experie
 
 ---
 
+## Audience & Goals 
+
+Front-line employees in small–mid-sized organizations who have little formal security training and often reuse passwords for convenience.  
+Our aim: let them *see*—in under five minutes—how a single leaked password can cascade into multiple account takeovers, then give them a friction-free path to safer habits. 
+
+---
+
+## Focus (one tech topic, one human topic)** 
+*Tech lens*: **Password Cracking** — brute-force, dictionary, and credential-stuffing attacks.  
+*Human lens*: **Bounded Rationality** — sliders, presets, and color-coded feedback replace mental math so the secure option is also the easiest.
+
+---
+
 ## 🎯 Project Objective
 
 Most password-compromise incidents don’t result from sophisticated malware or zero-day exploits. They stem from **predictable human behavior**, like reusing passwords across platforms or assuming that "slightly changing" a password keeps it secure. This simulator demonstrates how these common behaviors are **easily exploited through password cracking techniques** such as:
