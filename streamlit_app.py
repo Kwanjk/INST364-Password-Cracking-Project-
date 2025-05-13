@@ -1,3 +1,13 @@
+# ──────────────────────────────────────────────────────────────────────────
+# Password-Security Simulator
+# Copyright © 2025 Joshua Kwan – All Rights Reserved
+#
+# Source code authored for INST-364 final project. Licensed for educational
+# review only. External libraries remain under their respective licenses:
+#   • zxcvbn-python © Dropbox, MIT license
+#   • Streamlit © Streamlit Inc., Apache-2.0
+# ──────────────────────────────────────────────────────────────────────────
+
 """
 Password‑Security Simulator (2025 Final Prototype)
 =================================================
