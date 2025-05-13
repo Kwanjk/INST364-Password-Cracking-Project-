@@ -166,5 +166,11 @@ This simulator turns invisible threats into visible lessons, empowering users to
 
 ---
 
+## References 
+
+[hashcat2025]  Hashcat v6.2.6 benchmark results on NVIDIA RTX 4090, run 2025-04-01.  
+[rockyou2017]  RockYou plaintext password corpus (10 M entries). 2017 breach archive.  
+[zxcvbn2014]   Wheeler, D. “zxcvbn: Low-budget password-strength estimation.” USENIX 2014.  
+[NIST-63b]     NIST Special Publication 800-63b — Digital Identity Guidelines. June 2017.  
 
 © 2025 Password‑Security Simulator | Educational use only | No data is collected or sent
